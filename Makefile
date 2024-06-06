@@ -18,4 +18,7 @@ setup:
 dell:
 	pip uninstall hexlet-code
 
+test-coverage:
+	poetry run pytest--cov=gendiff
+
 
