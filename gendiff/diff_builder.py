@@ -20,4 +20,3 @@ def generate_diff(file_path1, file_path2):
     stail_diff = "\n ".join(diff)
 
     return f'{{\n {stail_diff}\n}}'
-

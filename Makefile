@@ -11,5 +11,11 @@ package-install:
 	python3 -m pip install --user dist/*.whl
 
 lint:
-	poetry run flake8 hexlet_python_package
+	poetry run flake8 gendiff
+
+setup:
+	install build package-install
+dell:
+	pip uninstall hexlet-code
+
 
