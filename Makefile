@@ -18,7 +18,7 @@ setup:
 dell:
 	pip uninstall hexlet-code
 
-test-coverage:
+make check:
 	poetry run pytest --cov=gendiff --cov-report xml
 
 
