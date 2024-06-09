@@ -23,7 +23,7 @@ pytest:
 	poetry run pytest
 
 selfcheck:
-  poetry check
+	poetry check
 
 check: selfcheck test lint
 
