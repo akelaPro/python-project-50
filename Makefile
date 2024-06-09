@@ -16,7 +16,7 @@ lint:
 dell:
 	pip uninstall hexlet-code
 
-make test-coverage:
+test-coverage:
 	poetry run pytest --cov=gendiff --cov-report xml
 
 pytest:
