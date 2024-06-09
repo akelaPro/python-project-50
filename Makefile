@@ -13,12 +13,16 @@ package-install:
 lint:
 	poetry run flake8 gendiff
 
-setup:
-	install build package-install
 dell:
 	pip uninstall hexlet-code
 
-make check:
+make test-coverage:
 	poetry run pytest --cov=gendiff --cov-report xml
+
+pytest:
+	poetry run pytest
+
+chek:
+	poetry chek
 
 
