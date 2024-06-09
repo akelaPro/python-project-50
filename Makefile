@@ -22,9 +22,6 @@ test-coverage:
 pytest:
 	poetry run pytest
 
-selfcheck:
-	poetry check
 
-check: selfcheck test lint
 
 
