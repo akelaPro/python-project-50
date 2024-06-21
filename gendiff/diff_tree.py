@@ -9,21 +9,21 @@ def generate_diff_tree(file1, file2):
                 'status': 'added',
                 'what_added': file2.get(key)
             }
-            result.append(step_res)
+            result.append(step_ressult)
         elif key not in keys2:
             step_ressult = {
                 'name': key,
                 'status': 'deleted',
                 'what_deleted': file2.get(key)
             }
-            result.append(step_res)
+            result.append(step_ressult)
         elif file1.get(key) == file2.get(key):
             step_ressult = {
                 'name': key,
                 'status': 'unchangent',
                 'intact': file1.get(key)
             }
-            result.append(step_res)
+            result.append(step_ressult)
         elif isinstance(
             file1.get(key), dict) and isinstance(
                 file2.get(key), dict):
