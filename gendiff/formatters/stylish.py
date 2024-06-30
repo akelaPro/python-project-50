@@ -29,7 +29,8 @@ def default_formatter(diff):
             elif status == 'changed':
                 lines.append(DEF * (depth - 1) + DEL + to_str(unit_diff["name"], unit_diff['from_first_dict']))
                 lines.append(DEF * (depth - 1) + ADD + to_str(unit_diff["name"], unit_diff['from_second_dict']))
-        output = '{\n' + '\n'.join(lines) + '{\n'
+        output = '{\n' + '\n'.join(lines) + '}\n'
         return output
     return make_diff(diff)
+
 

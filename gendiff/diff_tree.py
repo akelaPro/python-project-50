@@ -2,6 +2,7 @@ def generate_diff_tree(file1, file2):
     result = []
     keys1, keys2 = file1.keys(), file2.keys()
     all_keys = keys1 | keys2
+    step_ressult = {}
     for key in all_keys:
         if key not in keys1:
             step_ressult = {
@@ -35,7 +36,7 @@ def generate_diff_tree(file1, file2):
             }
             result.append(step_ressult)
         else:
-            step_result = {
+            step_ressult = {
                 'name': key,
                 'status': 'changed',
                 'from_first_dict': file1.get(key),
