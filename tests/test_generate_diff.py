@@ -33,4 +33,4 @@ RESULT = {
    (NESTED_FILE['nested1.json'], PLAIN_FILE['nested2.json'], 'plain', RESULT['plain_result']),
    (NESTED_FILE['nested1.yaml'], PLAIN_FILE['nested2.yaml'], 'plain', RESULT['plain_result'])])
 def test_generate_diff(path1, path2, formatter, diff):
-  assert generate_diff(path1, path2) == open(diff).read()
+  assert generate_diff(path1, path2, formatter) == open(diff).read()
