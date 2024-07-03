@@ -2,18 +2,35 @@ import pytest
 
 from gendiff.diff_builder import generate_diff
 
-path1_json = 'tests/fixtures/file1.json'
-path2_json = 'tests/fixtures/file2.json'
-diff_file = 'tests/fixtures/result.txt'
-path1_yaml = 'tests/fixtures/file1.yaml'
-path2_yaml = 'tests/fixtures/file2.yaml'
-path_nested1_json = 'tests/fixtures/nested1.json'
-path_nested2_json = 'tests/fixtures/nested2.json'
-pat_nested_result = 'tests/fixtures/nested_result.txt'
-@pytest.mark.parametrize('path1, path2, diff',
-                          [(path1_json, path2_json, diff_file),
-                            (path1_yaml, path2_yaml, diff_file),
-                            (path_nested1_json, path_nested2_json,
-                             pat_nested_result)])
-def test_generate_diff(path1, path2, diff):
-    assert generate_diff(path1, path2) == open(diff).read()
+NESTED_FILE = {
+   'nested1.json': 'tests/fixtures/nested1.json',
+   'nested2.json': 'tests/fixtures/nested2.json',
+   'nested1.yaml': 'tests/fixtures/nested1.yaml',
+   'nested2.yaml': 'tests/fixtures/nested2.yaml'
+}
+
+PLAIN_FILE = {
+    'file1.json': 'tests/fixtures/file1.json',
+    'file2.json': 'tests/fixtures/file2.json',
+    'file1.yaml': 'tests/fixtures/file1.yaml',
+    'file2.yaml': 'tests/fixtures/file2.yaml'
+}
+
+RESULT = {
+  'plain_result': 'tests/fixtures/plain_result.txt',
+  'nested_result': 'tests/fixtures/nested_result.txt',
+  'defoult_result': 'tests/fixtures/result.txt'
+}
+
+
+@pytest.mark.parametrize('path1, path2, formatter, diff',
+  [(PLAIN_FILE['file1.json'], PLAIN_FILE['file2.json'], 'stylish', RESULT['defoult_result']),
+  (PLAIN_FILE['file1.json'], PLAIN_FILE['file2.json'], 'plain', RESULT['plain_result']),
+  (PLAIN_FILE['file1.yaml'], PLAIN_FILE['file2.yaml'], 'plain', RESULT['plain_result']),
+   (PLAIN_FILE['file1.yaml'], PLAIN_FILE['file2.yaml'], 'stylish', RESULT['defoult_result']),
+   (NESTED_FILE['nested1.json'], PLAIN_FILE['nested2.json'], 'stylish', RESULT['nested_result']),
+   (NESTED_FILE['nested1.yaml'], PLAIN_FILE['nested2.yaml'], 'stylish', RESULT['nested_result']),
+   (NESTED_FILE['nested1.json'], PLAIN_FILE['nested2.json'], 'plain', RESULT['plain_result']),
+   (NESTED_FILE['nested1.yaml'], PLAIN_FILE['nested2.yaml'], 'plain', RESULT['plain_result'])])
+def test_generate_diff(path1, path2, formatter, diff):
+  assert generate_diff(path1, path2) == open(diff).read()
