@@ -25,12 +25,10 @@ RESULT = {
 
 @pytest.mark.parametrize('path1, path2, formatter, diff',
   [(PLAIN_FILE['file1.json'], PLAIN_FILE['file2.json'], 'stylish', RESULT['defoult_result']),
-  (PLAIN_FILE['file1.json'], PLAIN_FILE['file2.json'], 'plain', RESULT['plain_result']),
-  (PLAIN_FILE['file1.yaml'], PLAIN_FILE['file2.yaml'], 'plain', RESULT['plain_result']),
-   (PLAIN_FILE['file1.yaml'], PLAIN_FILE['file2.yaml'], 'stylish', RESULT['defoult_result']),
-   (NESTED_FILE['nested1.json'], PLAIN_FILE['nested2.json'], 'stylish', RESULT['nested_result']),
-   (NESTED_FILE['nested1.yaml'], PLAIN_FILE['nested2.yaml'], 'stylish', RESULT['nested_result']),
-   (NESTED_FILE['nested1.json'], PLAIN_FILE['nested2.json'], 'plain', RESULT['plain_result']),
-   (NESTED_FILE['nested1.yaml'], PLAIN_FILE['nested2.yaml'], 'plain', RESULT['plain_result'])])
+  (PLAIN_FILE['file1.yaml'], PLAIN_FILE['file2.yaml'], 'stylish', RESULT['defoult_result']),
+   (NESTED_FILE['nested1.json'], NESTED_FILE['nested2.json'], 'stylish', RESULT['nested_result']),
+   (NESTED_FILE['nested1.yaml'], NESTED_FILE['nested2.yaml'], 'stylish', RESULT['nested_result']),
+   (NESTED_FILE['nested1.json'], NESTED_FILE['nested2.json'], 'plain', RESULT['plain_result']),
+   (NESTED_FILE['nested1.yaml'], NESTED_FILE['nested2.yaml'], 'plain', RESULT['plain_result'])])
 def test_generate_diff(path1, path2, formatter, diff):
   assert generate_diff(path1, path2, formatter) == open(diff).read()
