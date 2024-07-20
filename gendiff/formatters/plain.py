@@ -7,7 +7,7 @@ def plain_formatter(diff, path=""):
             result += f"Property '{name}' was added with value: {to_str(unit_diff['what_added'])}\n"
 
         elif status == 'deleted':
-            result+= f"Property '{name}' was removed\n"
+            result += f"Property '{name}' was removed\n"
 
         elif status == 'changed':
             result += f"Property '{name}' was updated. From {to_str(unit_diff['from_first_dict'])} to {to_str(unit_diff['from_second_dict'])}\n"
