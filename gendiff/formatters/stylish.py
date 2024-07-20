@@ -34,7 +34,7 @@ def default_formatter(diff):
             elif status == 'unchangent':
                 lines.append(DEF * (depth) + to_str(
                     unit_diff["name"], unit_diff["intact"], depth))
-                
+       
             elif status == 'nested':
                 nested = make_diff(unit_diff['children'], depth + 1)
                 lines.append(f'{DEF * depth}{unit_diff["name"]}: {nested}')
