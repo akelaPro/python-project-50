@@ -13,9 +13,10 @@ def plain_formatter(diff, path=""):
             result += f"Property '{name}' was updated. From {to_str(unit_diff['from_first_dict'])} to {to_str(unit_diff['from_second_dict'])}\n"
 
         else:
-            nested = plain_formatter(unit_diff.get('children',[]), name + ".")
+            nested = plain_formatter(unit_diff.get('children', []), name + ".")
             result += nested
     return result
+
 
 def to_str(item):
     if isinstance(item, str):
@@ -24,7 +25,7 @@ def to_str(item):
         return '[complex value]'
     elif isinstance(item, bool):
         return str(item).lower()
-    elif item == None:
+    elif item is None:
         return 'null'
     else:
         return str(item)

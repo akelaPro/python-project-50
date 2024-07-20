@@ -1,6 +1,11 @@
 from gendiff.formatters.stylish import default_formatter
+
+
 from gendiff.formatters.plain import plain_formatter
+
+
 from gendiff.formatters.json import json_formater
+
 
 def diff_formaters(diff, format):
     if format == 'stylish':

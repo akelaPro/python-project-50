@@ -1,6 +1,6 @@
 import json
 
-import yaml 
+import yaml
 
 
 def open_file(path):
