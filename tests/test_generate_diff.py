@@ -19,7 +19,8 @@ PLAIN_FILE = {
 RESULT = {
   'plain_result': 'tests/fixtures/plain_result.txt',
   'nested_result': 'tests/fixtures/nested_result.txt',
-  'defoult_result': 'tests/fixtures/result.txt'
+  'defoult_result': 'tests/fixtures/result.txt',
+  'for_json_formatter': 'tests/fixtures/json_formatter_result.txt'
 }
 
 
@@ -29,6 +30,7 @@ RESULT = {
    (NESTED_FILE['nested1.json'], NESTED_FILE['nested2.json'], 'stylish', RESULT['nested_result']),
    (NESTED_FILE['nested1.yaml'], NESTED_FILE['nested2.yaml'], 'stylish', RESULT['nested_result']),
    (NESTED_FILE['nested1.json'], NESTED_FILE['nested2.json'], 'plain', RESULT['plain_result']),
-   (NESTED_FILE['nested1.yaml'], NESTED_FILE['nested2.yaml'], 'plain', RESULT['plain_result'])])
+   (NESTED_FILE['nested1.yaml'], NESTED_FILE['nested2.yaml'], 'plain', RESULT['plain_result']),
+   (NESTED_FILE['nested1.json'], NESTED_FILE['nested2.json'], 'json', RESULT['for_json_formatter'])])
 def test_generate_diff(path1, path2, formatter, diff):
   assert generate_diff(path1, path2, formatter) == open(diff).read()
