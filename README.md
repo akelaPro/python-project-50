@@ -9,7 +9,7 @@
 
 Сравнение плоских файлов
 
-<script src="https://asciinema.org/a/oR43xQJtAZ8YY3CUTIgZz7C61.js" id="asciicast-oR43xQJtAZ8YY3CUTIgZz7C61" async="true"></script>
+<a href="https://asciinema.org/a/oR43xQJtAZ8YY3CUTIgZz7C61" target="_blank"><img src="https://asciinema.org/a/oR43xQJtAZ8YY3CUTIgZz7C61.svg" /></a>
 
 Рекурсивное сравнение
 
