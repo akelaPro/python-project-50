@@ -23,6 +23,7 @@ RESULT = {
     'for_json_formatter': 'tests/fixtures/json_formatter_result.txt',
 }
 
+
 @pytest.mark.parametrize(
     'path1, path2, formatter, diff',
     [
