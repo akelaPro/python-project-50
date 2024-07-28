@@ -1,26 +1,28 @@
 def plain_formatter(diff, path=""):
-    result = ""
+    result = []
     for unit_diff in diff:
         status = unit_diff['status']
         name = path + unit_diff['name']
         if status == 'added':
-            result += f"Property '{name}' "
-            result += f"was added with value: "
-            result += f"{to_str(unit_diff['what_added'])}\n"
+            item = to_str(unit_diff['what_added'])
+            result.append(f"Property '{name}' was added with value: {item}")
 
         elif status == 'deleted':
-            result += f"Property '{name}' was removed\n"
+            result.append(f"Property '{name}' was removed")
 
         elif status == 'changed':
-            result += f"Property '{name}' "
-            result += f"was updated. From "
-            result += f"{to_str(unit_diff['from_first_dict'])} "
-            result += f"to {to_str(unit_diff['from_second_dict'])}\n"
+            old_item = to_str(unit_diff['from_first_dict'])
+            new_item = to_str(unit_diff['from_second_dict'])
+            result.append( f"Property '{name}' was updated. From {old_item} to {new_item}")
 
         else:
             nested = plain_formatter(unit_diff.get('children', []), name + ".")
-            result += nested
-    return result
+            result.extend(nested.splitlines())
+
+    return '\n'.join(result)  
+    
+
+    
 
 
 def to_str(item):
