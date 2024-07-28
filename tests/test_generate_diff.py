@@ -3,10 +3,10 @@ import pytest
 from gendiff.diff_builder import generate_diff
 
 NESTED_FILE = {
-'nested1.json': 'tests/fixtures/nested1.json',
-'nested2.json': 'tests/fixtures/nested2.json',
-'nested1.yaml': 'tests/fixtures/nested1.yaml',
-'nested2.yaml': 'tests/fixtures/nested2.yaml'
+  'nested1.json': 'tests/fixtures/nested1.json',
+  'nested2.json': 'tests/fixtures/nested2.json',
+  'nested1.yaml': 'tests/fixtures/nested1.yaml',
+  'nested2.yaml': 'tests/fixtures/nested2.yaml'
 }
 
 PLAIN_FILE = {
